@@ -9,19 +9,19 @@ const staticPath = path.join(__dirname,'../public');
 const partialPath = path.join(__dirname,'../templates/partials');
 
 //to set the view engine
-app.set('views', '../templates');
-app.set('view engine', 'hbs');
+// app.set('views', 'templates');
+// app.set('view engine', 'hbs');
 
-hbs.registerPartials(partialPath);
+// hbs.registerPartials(partialPath);
 
-app.get("", (req, res)=>{
-    res.render('index', {
-        myName : "Deepak Sahu"
-    });
-});
+// app.get("", (req, res)=>{
+//     res.render('index', {
+//         myName : "Deepak Sahu"
+//     });
+// });
 
 // builtin middleware
-// app.use(express.static(staticPath));
+app.use(express.static(staticPath));
 
 app.get("/", (req, res)=>{
     res.send("Hello from Express");
